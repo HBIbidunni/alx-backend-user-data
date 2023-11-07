@@ -1,23 +1,42 @@
-# Basic authentication; The ALX Project
---------------
-This project focuses on implementing __basic authentication__ mechanisms 
-for secure access to web applications and  provides a detailed 
-guide on setting up, understanding and running the __authentication system__.
+# Simple API
 
-The goal of the project is to create a secure __authentication system__ 
-where users can access specific endpoints based on their __authentication status__. 
-The project utilizes `Flask`, a popular Python web framework, 
-to handle __HTTP requests__ and __responses__. It implements 
-__basic authentication__ through username and password validation.
+Simple HTTP API for playing with `User` model.
 
-## Project Requurements :briefcase:
-All Python Scripts follow the descriptions and requirements listed below:
-- All files will be interpreted/compiled on `Ubuntu 18.04 LTS` using __python3__(`version 3.7`)
-- All files should end with a new line
-- The first line of all files should be exactly __#!/usr/bin/env python3__
-- All codes should use the __pycodestyle style__(`version 2.5`)
-- All files must be executable
-- All modules should have a documentation (python3 -c 'print(__import__("my_module").__doc__)')
-- All classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
-- All functions (inside and outside a class) should have a documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
-- The lenght of the module, class or method which all make up the documentation would be verified
+
+## Files
+
+### `models/`
+
+- `base.py`: base of all models of the API - handle serialization to file
+- `user.py`: user model
+
+### `api/v1`
+
+- `app.py`: entry point of the API
+- `views/index.py`: basic endpoints of the API: `/status` and `/stats`
+- `views/users.py`: all users endpoints
+
+
+## Setup
+
+```
+$ pip3 install -r requirements.txt
+```
+
+
+## Run
+
+```
+$ API_HOST=0.0.0.0 API_PORT=5000 python3 -m api.v1.app
+```
+
+
+## Routes
+
+- `GET /api/v1/status`: returns the status of the API
+- `GET /api/v1/stats`: returns some stats of the API
+- `GET /api/v1/users`: returns the list of users
+- `GET /api/v1/users/:id`: returns an user based on the ID
+- `DELETE /api/v1/users/:id`: deletes an user based on the ID
+- `POST /api/v1/users`: creates a new user (JSON parameters: `email`, `password`, `last_name` (optional) and `first_name` (optional))
+- `PUT /api/v1/users/:id`: updates an user based on the ID (JSON parameters: `last_name` and `first_name`)
