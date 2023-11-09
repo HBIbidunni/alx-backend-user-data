@@ -1,5 +1,8 @@
 # The ALX Project: Session Authentication
 ------------
+
+![ResearchGate image](https://www.researchgate.net/publication/325961962/figure/fig1/AS:641151904260096@1529873934134/Authentication-and-Session-Management-Process.png)
+
 __Session Authentication__ focuses on implementing secure user authentication 
 using sessions. In web applications, authentication is a 
 fundamental aspect of ensuring that users are who they claim to be. 
